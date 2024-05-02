@@ -75,9 +75,9 @@ const Form = (props) => {
                 </div>
                 <div>
                     orbits: <input type="number" value={orbits} onChange={checkOrbits} /> <br />
-                    {orbits > 10 ? "more than 10" : "nothing"}
-                    {/* {orbitsError ? <p>WOW!!! too many spins!!</p> : <p>you're too weak!</p>} */}
+                    {orbitsError ? <p>WOW!!! too many spins!!</p> : <p>you're too weak!</p>}
                     {/* {orbitsError && <p>WOW!!! too many spins!!</p>} */}
+                    {/* {orbits > 10 ? "more than 10" : "nothing"} */}
                 </div>
 
                 <button>create</button>
