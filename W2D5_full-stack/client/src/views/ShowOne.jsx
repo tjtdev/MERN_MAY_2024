@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -6,6 +6,8 @@ import axios from 'axios';
 const ShowOne = (props) => {
 
     const [cake, setCake] = useState(null);
+
+    const navigate = useNavigate();
 
     const { id } = useParams();
     console.log(id);
@@ -23,6 +25,8 @@ const ShowOne = (props) => {
         <div>{cake ? <>
             <h3>{cake.name}</h3>
             <img src={cake.imgUrl} alt={cake.name} width="200" />
+            <p></p>
+            <button onClick={() => navigate("/cakes/" + id + "/update")}>edit</button>
         </> : "loading...."}</div>
     );
 };

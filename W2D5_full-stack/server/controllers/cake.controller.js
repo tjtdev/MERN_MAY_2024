@@ -8,6 +8,7 @@ const CakeController = {
     // CREATE ------------------
     create: async (req, res) => {
         try {
+            console.log(req.body);
             const newCake = await Cake.create(req.body); // {}
             // ! this res.json is what axios will receive in REACT
             res.json(newCake);

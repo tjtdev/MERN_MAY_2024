@@ -15,6 +15,19 @@ const Home = (props) => {
             .catch(err => console.log(err));
     }, []);
 
+    const deleteCake = (cakeId) => {
+        console.log(cakeId);
+        axios.delete("http://localhost:1337/api/cakes/" + cakeId)
+            .then(res => {
+                console.log(res.data);
+                const filteredCakes = cakes.filter((cake) => {
+                    return cake._id !== cakeId;
+                });
+                setCakes(filteredCakes);
+            })
+            .catch(err => console.log(err));
+    };
+
     return (
         <div>
             all the cakes
@@ -44,7 +57,7 @@ const Home = (props) => {
                                 <td> <img src={cake.imgUrl} alt={cake.name} height="100" /> </td>
                                 <td>{cake.layers}</td>
                                 <td>{cake.hasFrosting ? "✅" : "❌"}</td>
-                                <td><button>delete</button></td>
+                                <td><button onClick={() => deleteCake(cake._id)}>delete</button></td>
                             </tr>;
                         })
                     }
